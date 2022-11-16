@@ -26,3 +26,4 @@ class Todo(models.Model):
     data_update = models.DateField(auto_now=True, blank=True)
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
     is_active = models.BooleanField(default=True)
+
