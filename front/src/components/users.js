@@ -1,18 +1,19 @@
 import React from "react";
 import "./menu.css"
 import "./users.css"
+import { Link } from 'react-router-dom'
 const User = ({user}) => {
 
     return(
         <tr>
             <td>
-                {user.first_name}
+            <Link to={`/users/${user.id}`}>{user.first_name}</Link>
             </td>
             <td>
                 {user.last_name}
             </td>
             <td>
-                {user.birthday_year}
+                {user.first_name}
             </td>
             <td>
                 {user.email}

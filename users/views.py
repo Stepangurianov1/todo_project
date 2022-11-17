@@ -9,6 +9,8 @@ from .serializers import UsersModelSerializer
 
 class UsersModelViewSet(ModelViewSet):
     queryset = Users.objects.all()
+    user = Users.objects.get(id=1)
+    print(user.id)
     serializer_class = UsersModelSerializer
 
 
