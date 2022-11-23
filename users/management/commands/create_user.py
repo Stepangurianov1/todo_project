@@ -3,7 +3,7 @@ from django.core.management import CommandError
 
 from django.core.management.base import BaseCommand, CommandError
 
-from users.models import Users
+from users.models import MyUsers
 
 
 class Command(BaseCommand):
@@ -19,7 +19,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         data = options.get('my_list')
         if data:
-            Users.objects.create_user(username=data[0],
+            MyUsers.objects.create_user(username=data[0],
                                       email=data[1],
                                       password=data[2],
                                       is_staff=True,
