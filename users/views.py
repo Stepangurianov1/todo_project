@@ -2,15 +2,13 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Users
+from .models import MyUsers
 from rest_framework.viewsets import ModelViewSet
 from .serializers import UsersModelSerializer
 
 
 class UsersModelViewSet(ModelViewSet):
-    queryset = Users.objects.all()
-    user = Users.objects.get(id=1)
-    print(user.id)
+    queryset = MyUsers.objects.all()
     serializer_class = UsersModelSerializer
 
 
@@ -19,9 +17,9 @@ class UsersModelViewSet(ModelViewSet):
 class UsersAPIView(APIView):
     def get(self, request, format=None):
         user_id = request.query_params.get('pk')
-        users = Users.objects.all()
+        users = MyUsers.objects.all()
 
         if user_id:
-            users = Users.objects.filter(id=user_id)
+            users = MyUsers.objects.filter(id=user_id)
         serializer = UsersModelSerializer(users, many=True)
         return Response(serializer.data)
