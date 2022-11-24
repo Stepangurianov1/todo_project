@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class MyUsers(AbstractUser):
-    email = models.EmailField(unique=True)
+    email = models.EmailField(blank=True, null=True)
 
     class Meta:
         db_table = 'users_user'
