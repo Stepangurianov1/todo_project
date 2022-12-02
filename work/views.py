@@ -33,7 +33,7 @@ class TodoModelViewSet(ModelViewSet):
     queryset = Todo.objects.all()
     serializer_class = TodoModelSerializer
     # filterset_fields = ['project']
-    filterset_class = TodoFilter
+    # filterset_class = TodoFilter
     # pagination_class = TodoLimitOffsetPagination
 
     def destroy(self, request, *args, **kwargs):
